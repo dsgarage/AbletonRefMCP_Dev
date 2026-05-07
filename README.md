@@ -77,12 +77,41 @@ python core.py
 ```json
 {
   "mcpServers": {
-    "ableton-ref": {
+    "ableton-ref-mcp": {
+      "type": "http",
       "url": "http://localhost:8001/mcp"
     }
   }
 }
 ```
+
+公開 URL に切替えるユーティリティ:
+
+```bash
+# localhost dev
+python3 scripts/switch_mcp_url.py http://localhost:8001/mcp
+
+# Railway 直接
+python3 scripts/switch_mcp_url.py https://abletonrefmcp-production.up.railway.app/mcp
+
+# 現状確認のみ
+python3 scripts/switch_mcp_url.py --show
+```
+
+### Railway デプロイ
+
+1. [railway.app](https://railway.app) にログイン → New Project → Deploy from GitHub
+2. リポジトリ `dsgarage/AbletonRefMCP_Dev` を選択（develop ブランチを選ぶ）
+3. Dockerfile が自動検出される（`railway.toml` で builder=DOCKERFILE 指定済み）
+4. Settings → Variables で必要に応じて `GITHUB_TOKEN` を追加（report_bug / request_feature ツール用、未設定でも MCP 自体は動作）
+5. Settings → Networking → Generate Domain で公開 URL を発行
+6. ローカルで切替:
+   ```bash
+   python3 scripts/switch_mcp_url.py https://<your-railway-domain>/mcp
+   ```
+7. Claude Code を再起動
+
+Railway は実行時に `PORT` 環境変数を動的に割り当てるので、Dockerfile の `ENV PORT=8001` はローカル開発のデフォルト用、本番では Railway 側が上書きします。
 
 ---
 
