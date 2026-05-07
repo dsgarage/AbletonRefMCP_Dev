@@ -88,15 +88,31 @@ python core.py
 
 ## データソース
 
-Phase 1 では最小シードデータを同梱しています。
-- `device-db.json` — Live / Move 主要デバイス 10 種
-- `hardware-db.json` — Move 1.x / 2.0、Push 3、Note の最小スペック
-- `release-notes-db.json` — Move 2.0 / Live 12.4 / Note の最新リリースノート
+- `device-db.json` — Live / Move 主要デバイス
+- `hardware-db.json` — Move 1.x / 2.0、Push 3、Note のスペック
+- `release-notes-db.json` — Live 12 / Move 1.x〜2.0 / Note 1.x〜2.0 のリリースノート（70 件超、ingest 済み）
 - `lom-db.json` — LOM 主要クラス 8 種（Application, Song, Track, Clip, …）
-- `glossary-db.json` — Ableton 用語 12 種
-- `pattern-db.json` — ワークフロー 5 種
+- `glossary-db.json` — Ableton 用語
+- `pattern-db.json` — ワークフローパターン
 
-Phase 2 で公式マニュアル / Help Center / リリースノート全件の ingest を予定。
+## ingest スクリプト
+
+`scripts/` 配下に取得スクリプトを置いてあります。
+
+```bash
+# ableton.com の release notes を全件取得して JSON にマージ
+python3 scripts/ingest_release_notes.py            # ドライラン
+python3 scripts/ingest_release_notes.py --write    # 実書き込み
+
+# Live マニュアルのデバイス TOC（Phase 2.5 で再実装予定 / 現状 0 件）
+python3 scripts/ingest_devices.py
+
+# help.ableton.com (Zendesk Help Center) からの記事一覧
+python3 scripts/ingest_help_center.py --search Move
+python3 scripts/ingest_help_center.py --write
+```
+
+`ingest_release_notes.py` は手書き翻訳済みの `title_ja` / `highlights_ja` を保持したまま、英語の追加 highlights を `highlights_en_ingested` に追加するマージ動作です。
 
 ## 開発状況
 
