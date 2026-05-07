@@ -1,5 +1,567 @@
 [
   {
+    "product": "note",
+    "version": "current",
+    "release_date": "rolling",
+    "channel": "stable",
+    "title_ja": "Note (iOS) 最新仕様",
+    "highlights_ja": [
+      "Cloud 経由で Live / Move と Set 同期",
+      "Move 2.0 のリリースに合わせて Note Set を Move へエクスポート可能"
+    ],
+    "url": "https://www.ableton.com/en/note/"
+  },
+  {
+    "product": "note",
+    "version": "2.0.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 2.0.1",
+    "highlights_ja": [
+      "Audio Tracks & Recording",
+      "Input Monitoring",
+      "Audio Interface Support",
+      "Auto Shift",
+      "Erosion",
+      "Link Audio",
+      "Improvements",
+      "Core Library Updates",
+      "Fixes",
+      "Record audio loops in session or track view.",
+      "Audio loops are warped, so they adapt their tempo without changing the pitch and vice versa.",
+      "Tapping + in Session brings up a context menu to record or load a sample",
+      "While recording in session, tap other clip slots to keep recording new clips",
+      "Capture FX Automation on existing clips or automate while recording",
+      "Control to change clip tempo by BPM and double/half tempo",
+      "Dials for clip gain and transpose",
+      "Tap on grid ruler to adjust the grid and tempo.",
+      "Swipe up and down on waveform to change clip gain",
+      "Loop different sections of a clip via the loop brace",
+      "Audio inputs can be monitored and processed through audio tracks",
+      "Input monitoring is enabled from the audio track view or from the track context menu in session view, it's exclusive and fixed to the track it is enabled on",
+      "Indicator on track icon shows the input signal in real time",
+      "Updated the empty sampler view with the same features as the empty audio clip.",
+      "Removed \"Input Monitoring\" toggle from Settings since this is now managed from within the set",
+      "Input sources can now be selected from the built in microphones and external connected devices.",
+      "Accessed from the microphone button in the empty audio clip and sampler views",
+      "Added Auto Shift as a new FX Device for real time pitch correction, vibrato and formant shifting",
+      "Added Erosion as a new FX Device for adding noise and grit to a sound.",
+      "New settings in the Link Menu for Link Audio. Live stream Note's audio to Live and Push.",
+      "Overhauled interactions with stop Buttons now appearing on playing clips"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.7.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.7.3",
+    "highlights_ja": [
+      "Fixes",
+      "Sample Options: When the start/end of a sample changes, you can now crop and save the sample",
+      "Tapping a new pad while holding the start or end marker changed the new pad",
+      "When zoomed into the waveform maximum, changing the left handle would change the right marker slightly",
+      "Sample Gain was shown inaccurately",
+      "Fixed flickering when reversing a sample",
+      "Improved waveform rendering when zoomed to sample level",
+      "Fixed potential crash with ultra-short samples"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.7.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.7.2",
+    "highlights_ja": [
+      "Tweaks",
+      "Fixes",
+      "Samplers: New start/stop editing workflow with dedicated markers",
+      "Samplers: Double tap to zoom to selected range",
+      "Samplers: Scrolling now uses scroll acceleration",
+      "Sample Slicing: Slice Samples to individual pads in Drum Sampler",
+      "Sample Slicing: Adjust individual start markers for a sample in slicing mode",
+      "Sample Slicing: Change Start/End on initial slicing",
+      "Audio Effects: New Auto Pan-Tremolo Effects Device",
+      "Track Color: Added option to change track color in track menu",
+      "Core Library: New Drum Racks by KUČKA",
+      "External Folders: Add external folders from anywhere on your iOS device in the Sample Browser",
+      "External Folders: Added \"External\" folder at the top-level in Sample Browser to gain access to external folders",
+      "External Folders: Added support to download samples from iCloud Drive",
+      "Autopan/Tremolo: Added icon for the waveform parameter (visible in Panning mode presets)",
+      "Fixed missing paste sample option on empty drum pads",
+      "App Size: Removed unused onboarding material from the app bundle"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.6",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.6",
+    "highlights_ja": [
+      "Fixes",
+      "New samples and presetes by Tamuz",
+      "Fixed a rare issue where the content of one sets would end up in another set"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.5.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.5.2",
+    "highlights_ja": [
+      "Tweaks",
+      "Fixes",
+      "iPad: Samples can now be dragged and dropped onto the sample view in Drum Kits and Melodic samplers. In drum kits, dragging multiple samples will load them onto multiple pads, starting from the currently selected one",
+      "Drift: You can now purchase Drift via the Settings page",
+      "Sample Options: Added Resampling/Recording toggle to the Sample Options",
+      "Sample Options: Now accessible via \"...\" on each sample",
+      "Drift: Added Pressure to the list of possible modulation sources, which can be controlled on the Y Axis of the Keys layout, as well as on Move",
+      "Drift: Added more verbose error messages for IAP",
+      "Drift: Adjusted \"locked\" toggles in High Contrast mode",
+      "Fixed an issue on iOS26 where some elements would not show the correct track color",
+      "Drift: When removing Drift's macros, automation of non-locked parameters will no longer be lost",
+      "Drift: Changing pages on Drift and Drum Sampler would no longer work after using undo or duplicating tracks",
+      "MIDI: Sometimes newly added notes would not wrap around the loop",
+      "High Contrast: Automation lines had the wrong border color",
+      "Melodic Sampler: Trigger/Gate was missing from the parameter layout"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.5.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.5.1",
+    "highlights_ja": [
+      "Fixes",
+      "Fixed an issue where Drift would show as not purchased in Airplane Mode.",
+      "Fixed an issue where swiping sub-pages of Drift was not possible with the main tab folded.",
+      "Adjusted some colors for Drift when using High Contrast Mode.",
+      "Automation was sometimes not shown for some Drift parameters."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.5",
+    "highlights_ja": [
+      "Fixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.4.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.4.3",
+    "highlights_ja": [
+      "Tweaks",
+      "Fixes",
+      "Auto Filter: Real-time visualisation of the LFO",
+      "Session View: Only show contents of the selected loop-range of a clip.",
+      "MIDI Editor: Newly added notes no longer overwrite existing notes.",
+      "Naming scheme for reversed samples has been changed from _rev.wav to ' R'.wav.",
+      "Device icons are now visible in high-contrast mode.",
+      "Preview sounds while browsing are no longer shown as MIDI notes in capture.",
+      "There were less than 5x5 pads for melodic instruments on some devices.",
+      "iPad: In some cases the amount of pads would vary too much between horizontal and portrait mode."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.4",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.4",
+    "highlights_ja": [
+      "Tweaks",
+      "Fixes",
+      "FX Device: Auto Filter is now available in Note!"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.3.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.3.2",
+    "highlights_ja": [
+      "Fixes",
+      "Fixed a crash that could occur when interacting with device parameters.",
+      "Loop handles now snap to the nearest grid line when dragging.",
+      "Fixed a crash that could occur when dragging clips in Session View.",
+      "Improved performance for clips that contain a lot of notes.",
+      "Fixed a crash that could occur when enlarging the MIDI editor.",
+      "Renamed Duplicate Loop to Double Loop for MIDI Editor."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.3.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.3.1",
+    "highlights_ja": [
+      "Fixes",
+      "Fixed a hang when returning to a track with the note repeat rate chooser still open.",
+      "Sample names in the MIDI editor no longer get truncated when using larger text sizes on iPad and iPhone.",
+      "Fixed an issue where the MIDI editor could open with the wrong zoom level, causing a crash when tapping on the right side.",
+      "Fixed a crash when drawing notes in landscape orientation.",
+      "Folding or unfolding the melodic MIDI editor no longer crashes when clips contain high notes.",
+      "Resolved a crash that could occur when quickly tapping in the editor after switching clips.",
+      "Changing velocities of continuation notes now works reliably and updates both note segments correctly."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.3",
+    "highlights_ja": [
+      "MIDI Editor",
+      "New Features",
+      "Tweaks",
+      "Fixes",
+      "Access the MIDI Editor through the Instrument View, either alongside the Pad View or in full-screen mode.",
+      "Tap to add or delete MIDI notes.",
+      "Move MIDI notes horizontally to change their position, or vertically to transpose them.",
+      "Adjust note length by dragging the handle on the right side of a note.",
+      "Drag up and down on a note’s right-side handle to adjust its velocity.",
+      "Long-press and drag to select multiple notes, then manipulate them via gestures or the Note Properties menu at the bottom.",
+      "Long-press, hold, and drag to add multiple consecutive notes (for drum instruments) or add notes with variable lengths (for melodic instruments).",
+      "Use pinch-to-zoom to zoom in and out, changing the grid resolution.",
+      "Long-press the loop brace at the top to duplicate or crop a section of a clip.",
+      "Swipe up on the loop brace to zoom to the loop. Swipe down to zoom out to the entire clip.",
+      "Rotate your device when the MIDI Editor is expanded to full screen to use the editor in landscape mode.",
+      "Switch the grid to triplets using the dedicated Triplets toggle at the bottom of the MIDI Editor in full-screen mode.",
+      "16 Pitches: Change the pitch of individual drum notes via the Note Properties menu."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.2.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.2.2",
+    "highlights_ja": [
+      "Onboarding/New Feature Tour: Swiping would dismiss the screen immediately."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.2.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.2.1",
+    "highlights_ja": [
+      "Magic Keyboard: Play melodic instruments with the magic keyboard on iPad (same layout as in Ableton Live).",
+      "Magic Keyboard: Play drum tracks with the keyboard (mapped to 1..4 to Z..V).",
+      "Magic Keyboard: Change octave with X/Y keys, use arrows to navigate between tracks, spacebar to capture or start/stop.",
+      "Polyphonic Aftertouch: Support pressure sensitivity from external MIDI instruments in presets that have pressure mapped.",
+      "Polyphonic Aftertouch: Play supported presets expressivly by sliding the finger up and down when in Keys view and In-Key mode.",
+      "Drum Sampler: Changing the Playback FX now changes the views immediately instead of waiting until a user lets go of the finger.",
+      "Performance: Performance improvements for devices that display multiple pages of parameters (e.g. drum sampler).",
+      "Sidebar: Fixed issue with the animation when opening the sidebar in instruments view.",
+      "Delay FX: Time and Feedback now show before the filter section.",
+      "Library: Swipe to delete now works as expected.",
+      "Session View: Fixed a delay when tapping on a clip in session view.",
+      "Preset Import: Imported Presets using samples from Ableton packs would not load.",
+      "Drum Cell: Trigger Mode Button was disabled when Hold parameter was zero.",
+      "Browser: Fixed browser search results occasionally not appearing.",
+      "Move: Adding an artwork to a set that originated from Move required Note to be restarted for the artwork to show up.",
+      "MIDI Mapping: Fixed issues with MIDI Mapping on devices that show visualisations instead of dials.",
+      "FX: Automated Dry/Wet parameters would result in the remaining dials to be disabled.",
+      "Quantization: Fixed triplet quantization toggle not affecting quantization."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.2",
+    "highlights_ja": [
+      "Arpeggiator: New Arpeggiator Options accessible through the side-bar next to the pads.",
+      "Drum Sampler: Added a second parameter page to access new playback effects.",
+      "Drum Sampler: Added a new X/Y Pad to manipulate the playback FX with touch.",
+      "Move: Sets can be shared with Ableton Move - a new portable hardware instrument for intuitive music making.",
+      "Dynamics Presets: Added new special presets for Dynamics that contain a Compressor device.",
+      "Saturator: Added a new saturation curve to the device.",
+      "Delay & Reverb FX: New visualisations for filter and diffusion types.",
+      "Browser: You can now see device icons across all of Note's instruments and effects for each preset.",
+      "Ableton Cloud: Now supports up to 8 sets as opposed to 5 sets previously.",
+      "Join Discord: Added a link to join Ableton's Discord & Note group to app settings.",
+      "Sound Content: Additional sound content for drum tracks.",
+      "Drum Sampler: Drum Sampler now shows filter type icons.",
+      "New Tracks: Improved default octaves for new tracks based on bass or melodic.",
+      "Naming: Long sample/preset names are now shortened with an elipsis.",
+      "Samplers: Updated list of default parameters that reset when loading/recording new samples.",
+      "Main FX: Menu is now staying open when adding FX devices or solo/muting other tracks.",
+      "Content: Sampler & Drum Rack have moved to Templates.",
+      "Content: Templates folder is now top of the list.",
+      "Content: Empty drum rack and melodic sampler presets are top of templates list.",
+      "Session View: Fixed a crash when dragging clips on iOS 18.",
+      "Drum Sampler: Fixed a crash when changing Gate/Trigger mode.",
+      "Session View: When adding a new track the browser would not be opened automatically.",
+      "Note selection: Notes would be selected that were starting outside the loop.",
+      "Session View: Scrolling when swiping on the track headers would not work.",
+      "Transport: Start/Stop would not happen on touch-down.",
+      "Crash: Fixed a crash when accessing effects devices."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.1.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.1.3",
+    "highlights_ja": [
+      "Crash: Fixed a crash that would sometimes occur when accessing a track's effects parameters."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.1.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.1.2",
+    "highlights_ja": [
+      "Support: Tapping on the version number 5 times gathers support and diagnostics data users can submit for support requests.",
+      "Testflight Beta: Users can now join the public beta via the Help screen.",
+      "Ableton Cloud: Access to the Status page via the settings."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.1.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.1.1",
+    "highlights_ja": [
+      "Ableton Live: Addressed an issue in which Ableton Live incorrectly displayed a notification stating, \"This document is in a new file format version. The document will sound different from when it was last saved.\" This erroneous message was due to incorrect metadata written by Note. There is no need to update Live, contrary to what the message suggests. To prevent this message from appearing again, affected sets need to be re-saved using this updated version."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.1",
+    "highlights_ja": [
+      "Ableton Live 12 Lite is now available for free to new and existing Note users.",
+      "Content: 50 new Drift Racks (incl. 6 templates), 4 new Drum Racks.",
+      "Content: 3 new 808 Presets, 3 new Melodic Sampler presets.",
+      "Onboarding: Added Ableton Live 12 Lite to onboarding and new feature tour.",
+      "Preferences: Simplified the App Settings menu.",
+      "Preferences: Added link to retrieve a free Ableton Live 12 Lite license.",
+      "Versioning: Changed Note versioning to be more aligned with Ableton Live.",
+      "Content: Removed 32 old Wavetable-based presets.",
+      "Content: Refined Macros mappings for some presets.",
+      "Ableton Live: Clip colors would sometimes not correctly sync with Ableton Live.",
+      "Content: Sample clicks in Cheetah Kit + Citizen Drop Kit removed.",
+      "Content: Hidden Hat waveform in Beard Kit fixed."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.8",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.8",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.7",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.7",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.6",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.6",
+    "highlights_ja": [
+      "Accessibility: Added more context for icons that previously had no name",
+      "Accessibility: Ensure that Overlay Menus are now modal/exclusive and items in the background are ignored",
+      "Accessibility: Enabled Direct-Touch Input on the Pads and Waveform views.",
+      "Accessibility: Added more context about the location of clips in Session View",
+      "App Store: Added \"Leave a Review\" Button to the App Settings",
+      "Sample Limitation: Added warnings when a sample exceeds the 100 MB size limit for Ableton Cloud",
+      "Ableton Cloud: If you are not signed in, Ableton Cloud is now visible at the top of the screen on first load",
+      "Ableton Cloud: You can now sign into Ableton Cloud without opening a separate instance of Safari",
+      "Browser: Samples larger than 100 MB can no longer be imported or selected in the browser",
+      "Pads Layout: Added a color for playing pads that match the root note in scale mode",
+      "Animations: Added animation when duplicating a clip",
+      "Devices: Saturator Base dial is now a bi-polar dial",
+      "Ableton Cloud: Added more detailed error messages instead of error codes",
+      "Samplers: The Waveform tab is now selected by default when it is empty",
+      "Ableton Cloud: Fixed a bug where sets would soemtimes get overwritten if the upload failed",
+      "Ableton Cloud: Sets with known errors during uploading no longer get stuck in uploading indefinitely",
+      "Capture: Fixed a crash that would occur when capturing after reordering tracks",
+      "Ableton Link: Start/Stop Sync is now persistant across launches of Note",
+      "Library: Fixed occasional erratic behavior of the play buttons"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.17",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.17",
+    "highlights_ja": [
+      "Improved zoom functionality to ensure all bars previously displayed remain visible after duplicating bars.",
+      "Resolved an issue causing crashes during note transposition, movement, or nudging.",
+      "Addressed a bug that could have led to crashes when opening very old sets.",
+      "Corrected text display problems encountered with larger text sizes in the settings menu."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.16",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.16",
+    "highlights_ja": [
+      "Crash: Fixed a crash when leaving a set, returning to it and deleting its first track."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.15",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.15",
+    "highlights_ja": [
+      "Clips: Support for up to 16 Bars",
+      "Clips: Added support for Uneven clip lengths",
+      "Clips: Zooming into portions of the clip is now possible via context menu or swiping up/down on the bar",
+      "Groove Amount: Added a global groove amount to the set-settings and per-clip swing options",
+      "Mixer: Added a new main channel that controls system volume",
+      "Mixer: Added ability to add up to 2 audio effects on the main channel",
+      "MIDI Mapping: Added option to map keys, pads and buttons to certain actions",
+      "MIDI Mapping: Added option to map 8 macros to knobs and buttons on MIDI hardware",
+      "Quantisation Amount: Added option to set the quantisation amount for notes",
+      "Sample Options: Introduced a redesigned sample options menu for working with samples",
+      "Video-Audio Import: Added option to select a video, crop its audio and then import it (via \"Imported\" folder)",
+      "Reset Parameters: Double tap parameters or the volume fader to reset them to the default preset value",
+      "Reset Parameters: Added \"Return to Default\" option to parameter page",
+      "Dials: Single tapping a dial now brings up the parameters page",
+      "Pads Layout: Added option to settings to choose between Note and Push-style layouts",
+      "Monitoring: Added option to automatically enable input monitoring when headphones are connected",
+      "Accessibility: Announce minimum and maximum ranges of values",
+      "Data Usage: Consent is now synced across instances of Note when logged into Ableton Cloud",
+      "Clips: Moved context menu to a long-press instead of single tap",
+      "Clips: Duplicate/Deleting bars is accessible via the context menu only",
+      "Performance: Performance improvements on older iOS devices when tweaking dials",
+      "Performance: Improved UI performance by reducing refreshes in some cases",
+      "Accessibility: Better Voice Over announcements for Pads",
+      "Accessibility: Improved accessibility for Export Audio, Keys & Scales, Tap Tempo menus",
+      "Accessibility: Read set library row by row with actions available",
+      "Accessibility: Quantize quick action now announced as a hint",
+      "Automation: Removed \"Mute\" option for automation",
+      "Ableton Cloud: Improved stability against random logouts from Cloud",
+      "Stability: Improved stability with incorrectly formatted sample references",
+      "Ableton Cloud: Improved stability and accidental logouts of Ableton Cloud"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.14",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.14",
+    "highlights_ja": [
+      "Set Library: Sets sometimes could get overwritten after leaving a Set and previewing another Set"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.13",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.13",
+    "highlights_ja": [
+      "Localization: Added Chinese language support"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
+    "product": "note",
+    "version": "1.0.12",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Note 1.0.12",
+    "highlights_ja": [
+      "Appearance: A dedicated AAA-rated \"High Contrast Theme\" can be selected in Setting",
+      "Appearance: Added a new option to always show note names and sample names",
+      "Browser: Users can now search and favorite samples and presets",
+      "Browser: Added option to delete user samples, presets and folders",
+      "Browser: Users can now import samples and create folders in the \"Imported\" folder",
+      "Preset Saving: An option to save the current device as a preset to browser",
+      "Preset Saving: Added an indicator when presets have changed",
+      "Copy & Paste: New option for Copy & Pasting of Pads in Drum Sampler",
+      "Copy & Paste: A \"Paste\" Option appears next to Record/Load in empty drum pads",
+      "Reverse Sample: Added option to reverse samples",
+      "Sound Content: Added new Drift-based presets",
+      "Velocity: Re-added velocity chromatic keyboard for iPad",
+      "Capture: Added a setting to disable the timeout of Capture",
+      "MIDI Input: MIDI Devices that were last connected are now remembered across Note sessions",
+      "Release Notes: Added link to detailed release notes to Help section",
+      "In App Survey: Added a popup and sign up action for user research",
+      "User Library: Migration of the \"User Samples\" folder to \"User Library\" in Files App",
+      "Samples: Added message/views in sets for samples that have been deleted",
+      "Samples: Moved sample saving from Sample Options to the Browser",
+      "Drift: Added Icon that indicates Drift-based presets",
+      "Touch Visualization: Moved to \"Preferences\" in App Settings",
+      "Legal: Updated EULA Texts",
+      "Bluetooth Audio: Added a \"Don't show again\" option for the bluetooth audio delay warning",
+      "Accessibility: Dials are no longer direct touch controls",
+      "Accessibility: Library popups are now visible to voiceover",
+      "Accessibility: Faders now behave as sliders and can be used by voice-over users",
+      "Accessibility: Several buttons' behaviour in voice-over have been improved",
+      "Accessibility: Removed the Capture Buffer Timeout when Voice-Over is enabled",
+      "Animations: Fixed animations when switching tabs in instrument view",
+      "Capture: Removed Free-Length/Fixed Length Info Popup when starting to play notes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/note/"
+  },
+  {
     "product": "move",
     "version": "2.0.0",
     "release_date": "2026-05-05",
@@ -18,6 +580,217 @@
       "Move と Note の Set を Move Manager 経由で相互アップロード"
     ],
     "requires_ja": "Move 2.0 の Set を Live で開く場合は Live 12.4 以降が必要。",
+    "url": "https://www.ableton.com/en/release-notes/move-1/",
+    "highlights_en_ingested": [
+      "Audio Tracks",
+      "Erosion",
+      "Auto Shift",
+      "Link Audio",
+      "Core Library Updates",
+      "Other Improvements",
+      "Bugfixes"
+    ]
+  },
+  {
+    "product": "move",
+    "version": "1.x",
+    "release_date": "2024-10 〜 2026-04",
+    "channel": "stable",
+    "title_ja": "Move 1.x シリーズ (初期 〜 2.0 直前)",
+    "highlights_ja": [
+      "MIDI トラックのみ。クリップは MIDI / ステップシーケンスのコンテナ",
+      "Loop ファイルは Drum Sampler / Melodic Sampler のサンプル素材として読み込む",
+      "オーディオを直接トラックに置く運用は不可",
+      "Sliced Loops プリセットカテゴリの追加 (中盤アップデート)"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.8.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.8.5",
+    "highlights_ja": [
+      "Bugfixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.8.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.8.1",
+    "highlights_ja": [
+      "Bugfixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.8.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.8.0",
+    "highlights_ja": [
+      "Auto Pan-Tremolo",
+      "Core Library Update",
+      "Additional Improvements"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.7.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.7.0",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.6.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.6.0",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.5.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.5.1",
+    "highlights_ja": [
+      "Bugfixes",
+      "Drum Sampler's Pitch > Env parameter is now on by default when loading or recording a sample."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.5.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.5.0",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.4.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.4.1",
+    "highlights_ja": [
+      "Bugfixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.4.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.4.0",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "4ths Layout",
+      "Other Improvements",
+      "Bugfixes",
+      "When step-automating playback effects, you now see the active parameters at the step’s position."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.3.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.3.0",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Sampling Audio via USB-C",
+      "Other Improvements",
+      "Bugfixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.2.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.2.1",
+    "highlights_ja": [
+      "Bugfixes",
+      "Fixed a crash that occurred when saving audio effect presets in Move’s browser."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.2.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.2.0",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "MIDI Sync",
+      "Other Improvements",
+      "Bugfixes",
+      "The playhead now pulses when Loop Mode is active.",
+      "Added the following improvements to the 16 Pitches layout: It is now possible to sequence notes in the 16 Pitches layout by holding a step and pressing a pad.",
+      "You can now transpose notes in the 16 Pitches layout notes using the plus and minus buttons.",
+      "Move now supports loading all samples from Packs.",
+      "Restarting all clips is now achieved only by holding Shift and pressing the Play button, and not when Shift is locked.",
+      "When it is not possible to upload or download a Cloud Set successfully, you can now press the wheel when the \"Cloud Error\" message is displayed to retry the transfer. The Cloud sync option for each Set is accessible from the Set Overview, after holding Shift and pressing a Set’s pad.",
+      "It is now easier to add samples to empty drum pads from Move's browser, which is especially useful when building a Drum Rack from scratch. If you press an empty pad when the browser is open, the browser now remains in its current position instead of going back to the root level, which means it is no longer necessary to navigate back to the sample folder every time you press an empty pad.",
+      "Sound Library improvements: Added new presets: Drift: Special Effects > Hoover",
+      "Effects: Delay > Time Delay",
+      "Improved Velocity-to-Volume settings for presets using Wavetable and Sampler to enhance their playability.",
+      "Added various bugfixes and stability improvements."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.1.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.1.3",
+    "highlights_ja": [
+      "Bugfixes",
+      "Fixed a rare crash that occurred when loading a sample into an empty drum pad.",
+      "Fixed a crash related to slice-recording.",
+      "Reduced lag time when uploading Sets containing large assets to Ableton Cloud."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "move",
+    "version": "1.1.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Move 1.1.2",
+    "highlights_ja": [
+      "New features and Improvements",
+      "16 Pitches",
+      "Arpeggiator",
+      "Control Live Mode",
+      "Other Improvements",
+      "You can now send audio from Move to Live via USB-C.",
+      "Updated the Core Library: Added new Melodic Sampler presets.",
+      "Added new Drum Rack presets including samples by DECAP, L.Dre, and Taka Perry.",
+      "Added new Drum Rack templates.",
+      "Added new audio effect presets for Saturator and Dynamics.",
+      "Refined existing presets.",
+      "Move Manager now works on Windows 10 via USB-C without manually installing drivers.",
+      "Implemented various bugfixes."
+    ],
     "url": "https://www.ableton.com/en/release-notes/move-1/"
   },
   {
@@ -35,29 +808,354 @@
     "url": "https://www.ableton.com/en/release-notes/live-12/"
   },
   {
-    "product": "move",
-    "version": "1.x",
-    "release_date": "2024-10 〜 2026-04",
+    "product": "live",
+    "version": "12.3.8",
+    "release_date": "",
     "channel": "stable",
-    "title_ja": "Move 1.x シリーズ (初期 〜 2.0 直前)",
+    "title_ja": "Live 12.3.8",
     "highlights_ja": [
-      "MIDI トラックのみ。クリップは MIDI / ステップシーケンスのコンテナ",
-      "Loop ファイルは Drum Sampler / Melodic Sampler のサンプル素材として読み込む",
-      "オーディオを直接トラックに置く運用は不可",
-      "Sliced Loops プリセットカテゴリの追加 (中盤アップデート)"
+      "New Features and Improvements",
+      "Added Control Surface support for Expressive E Osmose."
     ],
-    "url": "https://www.ableton.com/en/release-notes/move-1/"
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
   },
   {
-    "product": "note",
-    "version": "current",
-    "release_date": "rolling",
+    "product": "live",
+    "version": "12.3.7",
+    "release_date": "",
     "channel": "stable",
-    "title_ja": "Note (iOS) 最新仕様",
+    "title_ja": "Live 12.3.7",
     "highlights_ja": [
-      "Cloud 経由で Live / Move と Set 同期",
-      "Move 2.0 のリリースに合わせて Note Set を Move へエクスポート可能"
+      "New Features and Improvements",
+      "Stem separation can now use the GPU instead of the CPU on computers running macOS 26.4 and above, which makes the separation process faster."
     ],
-    "url": "https://www.ableton.com/en/note/"
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.3.6",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.3.6",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Bugfixes",
+      "Added Control Surface support for the Novation Launch Control 3.",
+      "Fixed a bug in the Launch Control XL 3 Control Surface that could cause the Track button LEDs to show incorrect states while Shift was held after return tracks were added or removed.",
+      "Fixed an issue that occurred when macro mapping Simpler's legacy filter type, where it was not possible to set the filter type to Notch."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.3.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.3.5",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.3.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.3.2",
+    "highlights_ja": [
+      "Bugfixes",
+      "Fixed an issue with the Max for Live API that caused Live to lag or freeze."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.3.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.3.1",
+    "highlights_ja": [
+      "Bugfixes",
+      "Fixed a crash that could occur when loading a Soundtoys plug-in and then performing an undo step to remove the plug-in.",
+      "Updated software text in various areas of Live."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.3",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.3",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2.7",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2.7",
+    "highlights_ja": [
+      "New Features and Improvements"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2.6",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2.6",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Added Control Surface support for Akai MPK mini IV."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2.5",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2.2",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Track meters are displayed using the track's color.",
+      "Encoders can fine-tune parameter values while Shift is held.",
+      "The tempo can be controlled in Tempo mode (accessed via Shift + Metro).",
+      "Devices can be selected, controlled, and viewed in Plugin mode."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2.1",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "When using Move in Control Live Mode, the parameter mappings of Auto Filter are now consistent with Standalone Mode."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.2",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.1.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.1.5",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Bugfixes",
+      "Updated the design of the Hot-Swap Sample and Swap to Previous/Next Similar Sample buttons in Simpler and Drum Sampler.",
+      "Drum Rack presets will no longer be excluded from the Sounds label. Additionally, Drum Rack and Drum Sampler presets tagged with \"Sounds|...\" will no longer be shown in the Drums label.",
+      "Selecting a large number of track headers or tracks in the Session or Arrangement View is now faster.",
+      "The Scale filter in Find and Select Notes is now available even if Scale Mode is turned off.",
+      "Accessibility: Changed the Info View header for Help View's home button from \"Lessons Start Page\" to \"View All Lessons\" for an improved screen reader announcement.",
+      "In Auto Shift, MPE pitch bend now uses a 48 semitones range.",
+      "Items tagged with \"Devices|Drums\" will now be included in the Drums label as well.",
+      "When browsing the All label, presets will once again be grouped into their respective devices. However, the grouping will be discarded when applying any filter, in favor of showing a flat list. The grouping will also be omitted when saving a custom view based on the All label.",
+      "Improved filtering of devices and presets.",
+      "A small arrow is now displayed next to a tag's name to indicate that the tag includes subtags. When clicking on a tag with subtags, the nested tags will be grouped along a yellow line.",
+      "It is now possible to use the # symbol to search for all filters, including Content, Function, Format, and Creator.",
+      "Significantly improved the frame rate when scrolling or zooming in the Arrangement when there are many clips and tracks.",
+      "VST2 and VST3 plug-ins now use different icons in the browser.",
+      "The different view modes in the Clip View's Clip Content Editor now use individual Info View descriptions.",
+      "The context dictionary outlet of the live.miditool.in Max object now includes a \"seed\" value which should be used to seed random number generators that are used to determine a MIDI Tool's output.",
+      "Updated the bundled Max build to 8.6.5. Max for Live improvements: live.miditool.in: displays correct annotation for 3rd outlet",
+      "live.scope~: fixed memory corruption issues when resized",
+      "live.text: text / texton accepts multiple words without quoting",
+      "live.thisdevice: undo no longer triggers output",
+      "M4L.chooser.js: fixed chain_selector parameter case",
+      "Max for Live Colors: added 'scale_awareness'",
+      "Max for Live Device: ensure that searchpaths are marked valid when unfreezing",
+      "Max for Live Device: fixed crash with loadbang",
+      "Max for Live Documentation: M4L-specific patcher attributes are documented",
+      "Max for Live Parameters: improvements to Stored Only parameters and undo/redo",
+      "Max for Live Parameters: only changed parameters get added to undo",
+      "mc.plugin~: fixed spurious output from second channel",
+      "Deleting a Max for Live device now releases any control surface controls the device has previously grabbed."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.1.11",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.1.11",
+    "highlights_ja": [
+      "Bugfixes"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.1.10",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.1.10",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Bugfixes",
+      "Native devices, including built-in Max for Live devices, are now sorted before plugins in search results.",
+      "Max for Live parameter objects with their @active attribute set to 0 are now greyed out on Push, much like parameters in native devices.",
+      "Fixed the following issues in the browser: Fixed a bug where the auto-completion suggestion would not be updated as more characters were typed in.",
+      "Fixed a bug that prevented tags containing a space from being auto-completed.",
+      "When filtering, the number of selected filters will now be displayed above the content pane.",
+      "Live will now start up slightly faster.",
+      "The \"Clear\" button visible above the content pane when searching or filtering in the browser has been replaced with an \"X\" button.",
+      "The \"+\" button used for saving a custom label has been replaced with a bookmark button.",
+      "A new Track.create_midi_clip function is exposed in the Max for Live API allowing the user to create empty clips in the Arrangement View. The function accepts two arguments, both floats, which indicate the start time and length of the empty clip.",
+      "Update Core Library for 12.1 to r60939: Updated tuning files.",
+      "New presets added from Note and Move Core Libraries.",
+      "Improved tags for Core Library content.",
+      "Accessibility: Improved screen reader support and keyboard control in Auto Shift.",
+      "Replaced the -inf value that represents negative infinity with the -∞ symbol.",
+      "Fixed an issue where Live would temporarily freeze when entering the Hot-Swap mode in certain conditions.",
+      "When playing high pitches, there is now less aliasing in Wavetable set to Hi-Quality mode.",
+      "When editing parameters and chords in the Stacks MIDI Tool while it is inactive (e.g., when using the Envelopes editor mode), the chord pictogram now updates as expected.",
+      "Fixed a performance regression that occurred when zooming into the Arrangement in a Set that contained many clips.",
+      "Fixed a crash that occurred when browsing Max for Live devices on Push 1 or Push 2 while using the -Push2UseLegacyScript debug option.",
+      "Accessibility: Fixed a crash that occurred when deleting a MIDI clip while a screen reader was in use and focused on the MIDI Note Editor.",
+      "Fixed an issue where devices with automated parameter would sometimes produce silence on the output.",
+      "Live now shows an error when attempting to load an empty tuning system file (.scl or .ascl) without pitches.",
+      "Smoothing now works as expected for long times in Roar's LFO and Noise.",
+      "Live no longer crashes when exporting the full duration of a video. If there is a failure while reading a video during export, Live will display a notification stating there was a problem with the export and the exported file may not work.",
+      "Fixed a bug in Meld, where scale degree transpose parameters instead of the semitone transpose parameters were displayed on Push while a tuning system was loaded.",
+      "In USB MIDI setups where there are multiple units of the same type of device there should now be no problems when routing to those devices, and MIDI routings should be correctly restored when unplugging and replugging the devices.",
+      "Fixed an Indexer crash which occurred when analyzing certain corrupted or unsupported audio files.",
+      "In Auto Shift, fixed a bug where MIDI modulation was active even when the MIDI input was disabled."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.1.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.1.1",
+    "highlights_ja": [
+      "Bugfixes",
+      "Fixed an issue where Live would hang on startup."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.1",
+    "highlights_ja": [
+      "To see the updates Live 12.1 brings to Push, head to our Push release notes page."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.5",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.5",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.25",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.25",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Added Control Surface support for Arturia KeyLab mk3, Novation Launchkey mk4 and Novation Launchkey Mini mk4."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.20",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.20",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.2",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.2",
+    "highlights_ja": [
+      "Bugfixes",
+      "Accessibility: Fixed an issue that prevented the Live 12 Trial from being authorized when using certain screen readers on Windows."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.15",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.15",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.10",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.10",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "​​​Live's authorization code has been reviewed and simplified (without functionality change) and now uses a JSON format for the unlock file."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0.1",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0.1",
+    "highlights_ja": [
+      "New Features and Improvements",
+      "Bugfixes",
+      "When accessing the Live Manual through the Help menu, users will now be redirected to the version of the manual corresponding to the version of Live they are using.",
+      "Content from the Orchestral Strings, Session Drums Club and Session Drums Studio Packs is now correctly authorized in Live Standard.",
+      "Fixed broken links in the German language version of the \"What's New in Live\" lesson."
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "live",
+    "version": "12.0",
+    "release_date": "",
+    "channel": "stable",
+    "title_ja": "Live 12.0",
+    "highlights_ja": [],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
   }
 ]
