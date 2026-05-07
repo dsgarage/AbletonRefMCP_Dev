@@ -1,0 +1,70 @@
+{
+  "move": {
+    "name": "Ableton Move",
+    "category": "portable_sketchpad",
+    "released": "2024-10",
+    "tags": ["hardware", "portable", "sampler", "battery"],
+    "tags_ja": ["ハードウェア", "ポータブル", "サンプラー", "バッテリー"],
+    "description": "Battery-powered portable sketchpad with 4 tracks, 32 pads, and built-in instruments.",
+    "description_ja": "バッテリー駆動の 4 トラック・32 パッド・内蔵音源搭載のポータブル sketchbox。Live や Note と Set 単位で連携できる。",
+    "track_count": 4,
+    "pad_count": 32,
+    "io": ["Stereo Out", "Headphones", "Line/Mic In", "USB-C", "Wi-Fi"],
+    "versions": {
+      "1.0": {
+        "released": "2024-10",
+        "notes_ja": "初期リリース。MIDI トラックのみ。クリップは MIDI / ステップシーケンスのみで、Loop ファイルは Drum Sampler / Melodic Sampler のサンプル素材としてのみ取り込み可能。",
+        "audio_tracks_supported": false,
+        "max_sample_size_mb": 200
+      },
+      "2.0.0": {
+        "released": "2026-05-05",
+        "notes_ja": "メジャーアップデート。各トラックを MIDI / Audio に切替可能になり、Audio Track には Loop ファイルを直接 Audio Clip としてセット可能。Warping 対応 (Tones / Texture / Re-pitch / Beats)。Auto Shift / Erosion 追加。Move Set のサンプル容量が 800MB に拡大。Link Audio 対応。",
+        "audio_tracks_supported": true,
+        "audio_warping": true,
+        "max_sample_size_mb": 800,
+        "new_devices": ["Auto Shift", "Erosion"],
+        "requires_live": "12.4 以降 (Move 2.0 Set を Live で開く場合)"
+      }
+    },
+    "track_preset_structure": "1 instrument + 2 effects per track (MIDI tracks). Audio tracks have effect chain only.",
+    "supported_file_formats": ["WAV", "AIFF", "FLAC", ".alc (Live Clip, 2.0+)"],
+    "update_methods": [
+      "On-device OTA via Wi-Fi",
+      "Browser at http://move.local/ (same network)",
+      "Beta channel at http://move.local/beta",
+      "USB-C connection to Move Manager"
+    ]
+  },
+  "push3": {
+    "name": "Ableton Push 3",
+    "category": "controller_standalone",
+    "released": "2023-05",
+    "tags": ["hardware", "controller", "standalone"],
+    "tags_ja": ["ハードウェア", "コントローラー", "スタンドアロン"],
+    "description": "Standalone music production instrument that runs Live's audio engine internally, or works as a controller.",
+    "description_ja": "Live のオーディオエンジンを内蔵するスタンドアロン版と、Live コントローラーとして使う標準版がある。",
+    "track_count": "unlimited (Live engine)",
+    "pad_count": 64,
+    "versions": {
+      "standalone": {
+        "notes_ja": "Live を内蔵。Wavetable / Drift / Operator / Drum Rack / Sampler 等すべて動作。Live セッションを直接編集可能。"
+      },
+      "controller": {
+        "notes_ja": "PC / Mac の Live 12 をコントロールする MIDI コントローラーとして動作。"
+      }
+    }
+  },
+  "note": {
+    "name": "Ableton Note",
+    "category": "ios_app",
+    "released": "2022-11",
+    "tags": ["ios", "app", "sketchpad"],
+    "tags_ja": ["iOS", "アプリ", "sketchpad"],
+    "description": "iOS sketchpad app with drum kits, melodic instruments, audio recording, and Cloud sync to Live / Move.",
+    "description_ja": "iOS 用のスケッチアプリ。Drum Kit / メロディック楽器 / オーディオ録音を備え、Cloud 経由で Live / Move と Set を同期できる。",
+    "platforms": ["iOS"],
+    "sync_targets": ["live", "move"],
+    "notes_ja": "Move 2.0 と Note の Set は Move Manager 経由で相互にやり取り可能。"
+  }
+}

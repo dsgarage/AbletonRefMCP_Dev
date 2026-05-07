@@ -1,0 +1,74 @@
+{
+  "clip": {
+    "ja": "クリップ",
+    "aliases": ["audio clip", "midi clip"],
+    "description": "A container of audio (audio clip) or MIDI notes (MIDI clip) that can be placed in a Session slot or Arrangement track.",
+    "description_ja": "オーディオ（オーディオクリップ）または MIDI ノート（MIDI クリップ）を格納する単位。Session の Clip Slot または Arrangement のトラック上に配置する。",
+    "related": ["scene", "warp", "track preset"]
+  },
+  "audio_clip": {
+    "ja": "オーディオクリップ",
+    "aliases": ["audio clip"],
+    "description": "Clip referencing an audio sample. Supports warping, looping, fades, and pitch.",
+    "description_ja": "オーディオサンプルを参照するクリップ。Warp / Loop / フェード / ピッチを持つ。Move では 2.0 以降の Audio Track 上で使える。",
+    "related": ["midi_clip", "warp", "loop"]
+  },
+  "midi_clip": {
+    "ja": "MIDIクリップ",
+    "description": "Clip containing MIDI notes and automation envelopes.",
+    "description_ja": "MIDI ノートとオートメーションエンベロープを含むクリップ。",
+    "related": ["audio_clip", "scene"]
+  },
+  "scene": {
+    "ja": "シーン",
+    "description": "Row of clips in Session View, fired together as a snapshot.",
+    "description_ja": "Session View の横一行。同時発火させるクリップ群のスナップショット。",
+    "related": ["clip", "session"]
+  },
+  "session": {
+    "ja": "セッション",
+    "aliases": ["session view"],
+    "description": "Live's non-linear performance view, organized as clips × tracks grid.",
+    "description_ja": "Live の非リニア演奏ビュー。クリップ × トラックのグリッド。",
+    "related": ["arrangement", "scene"]
+  },
+  "arrangement": {
+    "ja": "アレンジメント",
+    "aliases": ["arrangement view"],
+    "description": "Linear timeline view in Live for traditional song construction.",
+    "description_ja": "Live のリニアタイムラインビュー。従来の DAW 的な楽曲構築に使う。",
+    "related": ["session"]
+  },
+  "warp": {
+    "ja": "ワープ",
+    "description": "Time-stretching algorithm that fits an audio clip to the project tempo without changing pitch (or vice versa).",
+    "description_ja": "オーディオクリップをプロジェクトテンポに合わせて伸縮するタイムストレッチ。ピッチを保ったままテンポ変更、あるいはその逆ができる。Move 2.0 で本体に搭載。",
+    "modes": ["Beats", "Tones", "Texture", "Re-Pitch", "Complex", "Complex Pro"],
+    "related": ["audio_clip", "loop"]
+  },
+  "track_preset": {
+    "ja": "トラックプリセット",
+    "description": "Move's track-level preset combining one instrument and two effects (MIDI tracks).",
+    "description_ja": "Move のトラック単位のプリセット。MIDI トラックでは 1 楽器 + 2 エフェクトの組み合わせ。",
+    "related": ["clip", "device"]
+  },
+  "drum_rack": {
+    "ja": "ドラムラック",
+    "description": "16-pad container holding Drum Sampler / Simpler / external instrument per pad.",
+    "description_ja": "16 パッドのコンテナ。各パッドに Drum Sampler / Simpler / 外部楽器を配置できる。Move のドラムトラックの実体。",
+    "related": ["drum_sampler", "instrument_rack"]
+  },
+  "lom": {
+    "ja": "LOM",
+    "aliases": ["live object model"],
+    "description": "Live Object Model — the hierarchical API exposed to Max for Live and Live's Python control surfaces.",
+    "description_ja": "Live Object Model。Max for Live や Live の Python コントロールサーフェスから操作できる階層 API。Application > Song > Track > ClipSlot/Device の階層。",
+    "related": ["m4l", "max for live"]
+  },
+  "link_audio": {
+    "ja": "Link Audio",
+    "description": "Real-time audio streaming over local network between Link Audio-enabled devices, introduced in Live 12.4 / Move 2.0.",
+    "description_ja": "Live 12.4 / Move 2.0 で導入された、Link Audio 対応機器間のローカルネットワーク音声ストリーミング。",
+    "related": ["link", "move"]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "Application": {
+    "type": "class",
+    "tags": ["root", "lom"],
+    "tags_ja": ["ルート", "LOM"],
+    "description": "Top-level LOM object representing the running Live application.",
+    "description_ja": "LOM のルートオブジェクト。Live アプリ自体を表す。",
+    "parent": null,
+    "key_properties": [
+      {"name": "control_surfaces", "type": "list[ControlSurface]"},
+      {"name": "browser", "type": "Browser"}
+    ],
+    "key_children": ["LiveApp", "Song"],
+    "notes_ja": "M4L のスクリプト先頭で `app = Live.Application.get_application()` で取得。"
+  },
+  "Song": {
+    "type": "class",
+    "aliases": ["LiveSet"],
+    "tags": ["set", "session", "lom"],
+    "tags_ja": ["セット", "セッション", "LOM"],
+    "description": "Represents the current Live Set, containing tracks, scenes, and master/return tracks.",
+    "description_ja": "現在の Live Set。Track 群・Scene 群・Master / Return Track を持つ。",
+    "parent": "Application",
+    "key_properties": [
+      {"name": "tracks", "type": "list[Track]"},
+      {"name": "return_tracks", "type": "list[Track]"},
+      {"name": "master_track", "type": "Track"},
+      {"name": "scenes", "type": "list[Scene]"},
+      {"name": "tempo", "type": "float"},
+      {"name": "is_playing", "type": "bool"},
+      {"name": "current_song_time", "type": "float"}
+    ],
+    "key_methods": [
+      "create_audio_track(index)",
+      "create_midi_track(index)",
+      "create_scene(index)",
+      "delete_track(index)"
+    ]
+  },
+  "Track": {
+    "type": "class",
+    "tags": ["track", "lom"],
+    "tags_ja": ["トラック", "LOM"],
+    "description": "Audio / MIDI / Return / Master track. Holds clip slots, devices, and mixer params.",
+    "description_ja": "Audio / MIDI / Return / Master トラック。Clip Slot 群・Device 群・ミキサーパラメーターを持つ。",
+    "parent": "Song",
+    "key_properties": [
+      {"name": "clip_slots", "type": "list[ClipSlot]"},
+      {"name": "devices", "type": "list[Device]"},
+      {"name": "mute", "type": "bool"},
+      {"name": "solo", "type": "bool"},
+      {"name": "arm", "type": "bool"},
+      {"name": "is_audio_track", "type": "bool"},
+      {"name": "is_midi_track", "type": "bool"},
+      {"name": "name", "type": "str"}
+    ]
+  },
+  "ClipSlot": {
+    "type": "class",
+    "tags": ["session", "clip", "lom"],
+    "tags_ja": ["セッション", "クリップ", "LOM"],
+    "description": "Slot in Session View that can hold a Clip.",
+    "description_ja": "Session View の各セル。Clip を保持できる。",
+    "parent": "Track",
+    "key_properties": [
+      {"name": "clip", "type": "Clip | None"},
+      {"name": "has_clip", "type": "bool"},
+      {"name": "is_playing", "type": "bool"}
+    ],
+    "key_methods": [
+      "fire()",
+      "stop()",
+      "create_clip(length)",
+      "delete_clip()"
+    ]
+  },
+  "Clip": {
+    "type": "class",
+    "tags": ["clip", "midi", "audio", "lom"],
+    "tags_ja": ["クリップ", "MIDI", "オーディオ", "LOM"],
+    "description": "Audio or MIDI clip with notes, warping settings, automation envelopes.",
+    "description_ja": "オーディオまたは MIDI クリップ。ノート / Warp 設定 / オートメーションエンベロープを持つ。",
+    "parent": "ClipSlot",
+    "key_properties": [
+      {"name": "is_audio_clip", "type": "bool"},
+      {"name": "is_midi_clip", "type": "bool"},
+      {"name": "warping", "type": "bool"},
+      {"name": "warp_mode", "type": "int (0=Beats,1=Tones,2=Texture,3=Re-Pitch,4=Complex,5=Complex Pro)"},
+      {"name": "looping", "type": "bool"},
+      {"name": "loop_start", "type": "float"},
+      {"name": "loop_end", "type": "float"},
+      {"name": "name", "type": "str"}
+    ]
+  },
+  "Scene": {
+    "type": "class",
+    "tags": ["scene", "session", "lom"],
+    "tags_ja": ["シーン", "セッション", "LOM"],
+    "description": "Row in Session View, fires all clips in the row simultaneously.",
+    "description_ja": "Session View の 1 行。同時に全トラックの該当 Clip Slot を発火させる。",
+    "parent": "Song",
+    "key_properties": [
+      {"name": "name", "type": "str"},
+      {"name": "tempo", "type": "float"},
+      {"name": "is_triggered", "type": "bool"}
+    ],
+    "key_methods": ["fire()"]
+  },
+  "Device": {
+    "type": "class",
+    "tags": ["device", "lom"],
+    "tags_ja": ["デバイス", "LOM"],
+    "description": "Instrument or audio effect on a track.",
+    "description_ja": "トラック上の楽器または Audio Effect。",
+    "parent": "Track",
+    "key_properties": [
+      {"name": "parameters", "type": "list[DeviceParameter]"},
+      {"name": "name", "type": "str"},
+      {"name": "class_name", "type": "str"},
+      {"name": "type", "type": "DeviceType"}
+    ]
+  },
+  "DeviceParameter": {
+    "type": "class",
+    "tags": ["parameter", "automation", "lom"],
+    "tags_ja": ["パラメーター", "オートメーション", "LOM"],
+    "description": "Single automatable parameter of a device.",
+    "description_ja": "デバイスの単一パラメーター。オートメーション・MIDI Map 可能。",
+    "parent": "Device",
+    "key_properties": [
+      {"name": "value", "type": "float"},
+      {"name": "min", "type": "float"},
+      {"name": "max", "type": "float"},
+      {"name": "name", "type": "str"},
+      {"name": "is_quantized", "type": "bool"}
+    ]
+  }
+}

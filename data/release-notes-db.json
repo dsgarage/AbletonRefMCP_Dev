@@ -1,0 +1,63 @@
+[
+  {
+    "product": "move",
+    "version": "2.0.0",
+    "release_date": "2026-05-05",
+    "channel": "stable",
+    "title_ja": "Move 2.0 安定版リリース",
+    "highlights_ja": [
+      "Audio Tracks 追加: 4 トラックそれぞれを MIDI / Audio に切替可能",
+      "Audio Clip Warping (Tones / Texture / Re-pitch / Beats モード)",
+      "マイク / Line / USB-C からの直接録音とリサンプリング",
+      "Auto Shift と Erosion を Move に追加",
+      "Move Set のサンプル容量が 800MB に拡大",
+      "Link Audio 対応 (Live 12.4 とのオーディオストリーミング)",
+      "Shift + Mute 同時押しでトラックソロ",
+      "MIDI 入出力同時アクティブ化、トラックごとの送受信チャンネル設定",
+      "Audio Clip のループ点変更・停止・削除がフェード処理化",
+      "Move と Note の Set を Move Manager 経由で相互アップロード"
+    ],
+    "requires_ja": "Move 2.0 の Set を Live で開く場合は Live 12.4 以降が必要。",
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "live",
+    "version": "12.4",
+    "release_date": "2026-05-05",
+    "channel": "stable",
+    "title_ja": "Live 12.4 リリース",
+    "highlights_ja": [
+      "Link Audio: ローカルネットワーク上で Live / Move 間の音声をリアルタイムストリーミング",
+      "Auto Shift / Erosion / Delay 等のデバイス全面リビルド",
+      "Stem Separation 機能の改良",
+      "Move 2.0 Set の互換オープン対応"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/live-12/"
+  },
+  {
+    "product": "move",
+    "version": "1.x",
+    "release_date": "2024-10 〜 2026-04",
+    "channel": "stable",
+    "title_ja": "Move 1.x シリーズ (初期 〜 2.0 直前)",
+    "highlights_ja": [
+      "MIDI トラックのみ。クリップは MIDI / ステップシーケンスのコンテナ",
+      "Loop ファイルは Drum Sampler / Melodic Sampler のサンプル素材として読み込む",
+      "オーディオを直接トラックに置く運用は不可",
+      "Sliced Loops プリセットカテゴリの追加 (中盤アップデート)"
+    ],
+    "url": "https://www.ableton.com/en/release-notes/move-1/"
+  },
+  {
+    "product": "note",
+    "version": "current",
+    "release_date": "rolling",
+    "channel": "stable",
+    "title_ja": "Note (iOS) 最新仕様",
+    "highlights_ja": [
+      "Cloud 経由で Live / Move と Set 同期",
+      "Move 2.0 のリリースに合わせて Note Set を Move へエクスポート可能"
+    ],
+    "url": "https://www.ableton.com/en/note/"
+  }
+]

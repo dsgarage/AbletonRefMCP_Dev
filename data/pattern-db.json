@@ -1,0 +1,86 @@
+[
+  {
+    "id": "move-loop-as-audio-clip",
+    "name": "Move でループファイルを Audio Clip としてセットする",
+    "name_en": "Place a loop file as an Audio Clip on Move",
+    "description": "Move 2.0 以降、トラックを Audio Track に切替えてループ素材を直接 Clip として配置する。Warp 対応。",
+    "description_en": "On Move 2.0+, switch a track to Audio mode and drop a loop sample directly as an Audio Clip. Warping is supported.",
+    "applicable_products": ["move"],
+    "min_version": "2.0.0",
+    "tags": ["move", "audio_clip", "loop", "warp"],
+    "tags_ja": ["Move", "オーディオクリップ", "ループ", "ワープ"],
+    "steps_ja": [
+      "Move 2.0 以降にアップデート（http://move.local/ または http://move.local/beta、もしくは USB-C で Move Manager）",
+      "対象トラックを長押し → Track Type を Audio に切替",
+      "Move Manager の Samples タブからループファイルをアップロード、または本体ライブラリから選択",
+      "クリップスロットにドラッグ / ドロップ（本体ではブラウザ → Pad で配置）",
+      "クリップ選択 → Warp ON、Warp Mode を Beats / Tones / Texture / Re-Pitch から選択"
+    ],
+    "related_devices": ["Drum Sampler", "Melodic Sampler"],
+    "related_terms": ["audio_clip", "warp", "track_preset"]
+  },
+  {
+    "id": "move-update-paths",
+    "name": "Move 本体のアップデート方法",
+    "name_en": "Update paths for Move firmware",
+    "description": "Move のファームを最新化する 3 つの経路（OTA / move.local / USB-C）と Beta チャネル。",
+    "description_en": "Three update paths for Move firmware: OTA, move.local browser, USB-C, plus Beta channel.",
+    "applicable_products": ["move"],
+    "tags": ["move", "update", "firmware", "beta"],
+    "tags_ja": ["Move", "アップデート", "ファームウェア", "ベータ"],
+    "steps_ja": [
+      "OTA: Move 本体メニューから Settings → System → Update を選択",
+      "ローカル Web: 同一 Wi-Fi の PC/スマホで http://move.local/ を開き Settings → Update",
+      "Beta チャネル: http://move.local/beta で Join Beta を選択 (2.0 系を確実に取得)",
+      "USB-C 接続: Mac/PC とつないで http://move.local/ を開く (Wi-Fi 不要・最も確実)"
+    ],
+    "related_terms": ["link_audio"]
+  },
+  {
+    "id": "live-midi-to-audio",
+    "name": "Live で MIDI クリップをオーディオに変換",
+    "name_en": "Freeze and flatten MIDI clips to audio in Live",
+    "description": "Freeze → Flatten で MIDI トラックをオーディオに変換し、CPU 負荷を下げる / 別環境で再生可能にする。",
+    "description_en": "Use Freeze → Flatten to convert MIDI tracks to audio, reducing CPU load and allowing portability.",
+    "applicable_products": ["live"],
+    "tags": ["live", "midi", "audio", "freeze"],
+    "tags_ja": ["Live", "MIDI", "オーディオ", "フリーズ"],
+    "steps_ja": [
+      "対象 MIDI トラックヘッダーを右クリック → Freeze Track",
+      "再度右クリック → Flatten でオーディオトラックに変換",
+      "Move へ持っていきたい場合は Audio クリップを書き出して Move Manager の Samples からアップロード"
+    ]
+  },
+  {
+    "id": "m4l-modify-clip-warp",
+    "name": "M4L から Clip の Warp Mode を変更する",
+    "name_en": "Change a clip's warp mode from Max for Live",
+    "description": "LOM の Clip オブジェクトの warp_mode プロパティを書き換える。",
+    "description_en": "Modify the Clip object's warp_mode property via LOM.",
+    "applicable_products": ["live"],
+    "tags": ["m4l", "lom", "clip", "warp"],
+    "tags_ja": ["M4L", "LOM", "クリップ", "ワープ"],
+    "steps_ja": [
+      "live.path や live.object で対象 Clip を取得",
+      "warp_mode プロパティを 0=Beats, 1=Tones, 2=Texture, 3=Re-Pitch, 4=Complex, 5=Complex Pro で設定",
+      "warping が True であることを事前確認 (False のときは warp 系プロパティが効かない)"
+    ],
+    "related_terms": ["lom", "warp"]
+  },
+  {
+    "id": "auto-shift-vocal-tuning",
+    "name": "Auto Shift で歌唱ピッチ補正",
+    "name_en": "Vocal pitch correction with Auto Shift",
+    "description": "Live 12.4 / Move 2.0 で利用可能な Auto Shift をボーカルトラックにかけて補正する。",
+    "description_en": "Apply Auto Shift on a vocal track for tuning, available on Live 12.4 / Move 2.0.",
+    "applicable_products": ["live", "move"],
+    "min_version": "12.4 (Live), 2.0.0 (Move)",
+    "tags": ["vocal", "pitch", "auto_shift"],
+    "tags_ja": ["ボーカル", "ピッチ", "オートシフト"],
+    "steps_ja": [
+      "対象オーディオトラックに Auto Shift をインサート",
+      "Mode を Pitch Correction に設定 / Tune で許容セント幅を調整",
+      "Move 2.0 では Audio Track 上で同じ操作が可能"
+    ]
+  }
+]

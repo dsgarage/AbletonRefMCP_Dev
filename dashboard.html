@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AbletonRefMCP Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --text-dim: #8b8fa3;
+    --accent: #6c8cff;
+    --accent2: #a78bfa;
+    --success: #34d399;
+    --error: #f87171;
+    --warn: #fbbf24;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; padding: 24px;
+  }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; }
+  .subtitle { color: var(--text-dim); font-size: 0.875rem; margin-bottom: 24px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 24px;
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+  .card-title { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .card-value { font-size: 2rem; font-weight: 700; }
+  .card-value.accent { color: var(--accent); }
+  .card-value.success { color: var(--success); }
+  .card-value.warn { color: var(--warn); }
+  .section { margin-bottom: 24px; }
+  .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+  .chart-container {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; margin-bottom: 24px;
+  }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 200px; font-size: 0.8rem; font-family: 'SF Mono', Monaco, monospace; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-track { flex: 1; height: 28px; background: var(--bg); border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; display: flex; align-items: center; padding-left: 8px; font-size: 0.75rem; font-weight: 600; }
+  .bar-count { min-width: 40px; text-align: right; font-size: 0.8rem; color: var(--text-dim); }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .mono { font-family: 'SF Mono', Monaco, monospace; font-size: 0.8rem; }
+  .status-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  }
+  .status-success { background: rgba(52,211,153,0.15); color: var(--success); }
+  .status-error { background: rgba(248,113,113,0.15); color: var(--error); }
+  .status-exception { background: rgba(251,191,36,0.15); color: var(--warn); }
+  .sparkline { display: flex; align-items: flex-end; gap: 2px; height: 60px; }
+  .spark-bar { background: var(--accent); border-radius: 2px; min-width: 6px; flex: 1; transition: height 0.4s ease; opacity: 0.8; }
+  .spark-bar:hover { opacity: 1; }
+  .controls { display: flex; gap: 8px; margin-bottom: 16px; }
+  .btn {
+    padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); cursor: pointer;
+    font-size: 0.8rem; transition: all 0.2s;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .loading { text-align: center; padding: 40px; color: var(--text-dim); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .bar-label { width: 140px; } }
+  .refresh-info { font-size: 0.75rem; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<h1>AbletonRefMCP Dashboard</h1>
+<p class="subtitle">API 利用状況モニタリング <span class="refresh-info" id="refreshInfo"></span></p>
+
+<div class="controls">
+  <button class="btn active" onclick="loadData(7)" id="btn7">7日間</button>
+  <button class="btn" onclick="loadData(30)" id="btn30">30日間</button>
+  <button class="btn" onclick="loadData(90)" id="btn90">90日間</button>
+  <button class="btn" onclick="loadData(0)" id="btn0">全期間</button>
+</div>
+
+<div class="grid" id="summaryCards">
+  <div class="loading">データを読み込み中...</div>
+</div>
+
+<div class="two-col">
+  <div class="chart-container">
+    <div class="section-title">ツール別呼び出し数</div>
+    <div id="toolChart" class="bar-chart"></div>
+  </div>
+  <div class="chart-container">
+    <div class="section-title">人気検索クエリ</div>
+    <div id="queryChart" class="bar-chart"></div>
+  </div>
+</div>
+
+<div class="chart-container">
+  <div class="section-title">日別推移</div>
+  <div id="dailyChart" class="sparkline"></div>
+  <div id="dailyLabels" style="display:flex;justify-content:space-between;margin-top:4px;"></div>
+</div>
+
+<div class="chart-container">
+  <div class="section-title">直近の呼び出し</div>
+  <table>
+    <thead><tr><th>ツール</th><th>パラメータ</th><th>ステータス</th><th>応答時間</th><th>日時</th></tr></thead>
+    <tbody id="recentTable"></tbody>
+  </table>
+</div>
+
+<script>
+const BASE = location.origin;
+let currentDays = 7;
+
+async function fetchJSON(path) {
+  const res = await fetch(`${BASE}${path}`);
+  if (!res.ok) throw new Error(`${res.status}`);
+  return res.json();
+}
+
+function formatTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleString('ja-JP', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
+}
+
+function renderCards(data) {
+  const errRate = data.total_calls > 0
+    ? ((data.by_status.error || 0) / data.total_calls * 100).toFixed(1)
+    : '0.0';
+  document.getElementById('summaryCards').innerHTML = `
+    <div class="card"><div class="card-title">総呼び出し数</div><div class="card-value accent">${data.total_calls.toLocaleString()}</div></div>
+    <div class="card"><div class="card-title">平均応答時間</div><div class="card-value success">${data.avg_duration_ms}ms</div></div>
+    <div class="card"><div class="card-title">ツール数</div><div class="card-value">${data.by_tool.length}</div></div>
+    <div class="card"><div class="card-title">エラー率</div><div class="card-value ${parseFloat(errRate) > 5 ? 'warn' : 'success'}">${errRate}%</div></div>
+  `;
+}
+
+function renderToolChart(tools) {
+  const max = tools.length > 0 ? tools[0].count : 1;
+  const colors = ['#6c8cff','#a78bfa','#34d399','#fbbf24','#f87171','#38bdf8','#fb923c','#e879f9','#818cf8','#4ade80','#f472b6'];
+  document.getElementById('toolChart').innerHTML = tools.map((t, i) => `
+    <div class="bar-row">
+      <span class="bar-label">${t.tool.replace('ableton.','')}</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${(t.count/max*100).toFixed(1)}%;background:${colors[i % colors.length]}">${t.errors > 0 ? `⚠ ${t.errors}` : ''}</div>
+      </div>
+      <span class="bar-count">${t.count}</span>
+    </div>
+  `).join('');
+}
+
+function renderQueryChart(queries) {
+  if (queries.length === 0) {
+    document.getElementById('queryChart').innerHTML = '<div style="color:var(--text-dim);padding:20px">検索データなし</div>';
+    return;
+  }
+  const max = queries[0].count;
+  document.getElementById('queryChart').innerHTML = queries.slice(0, 10).map((q, i) => `
+    <div class="bar-row">
+      <span class="bar-label">"${q.query}"</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${(q.count/max*100).toFixed(1)}%;background:var(--accent2)"></div>
+      </div>
+      <span class="bar-count">${q.count}</span>
+    </div>
+  `).join('');
+}
+
+function renderDailyChart(daily) {
+  if (daily.length === 0) {
+    document.getElementById('dailyChart').innerHTML = '<div style="color:var(--text-dim);padding:20px">データなし</div>';
+    document.getElementById('dailyLabels').innerHTML = '';
+    return;
+  }
+  const max = Math.max(...daily.map(d => d.count), 1);
+  document.getElementById('dailyChart').innerHTML = daily.map(d =>
+    `<div class="spark-bar" style="height:${Math.max((d.count/max*100), 4)}%" title="${d.date}: ${d.count}回"></div>`
+  ).join('');
+  document.getElementById('dailyLabels').innerHTML = `
+    <span style="font-size:0.7rem;color:var(--text-dim)">${daily[0].date}</span>
+    <span style="font-size:0.7rem;color:var(--text-dim)">${daily[daily.length-1].date}</span>
+  `;
+}
+
+function renderRecent(calls) {
+  document.getElementById('recentTable').innerHTML = calls.map(c => {
+    const params = c.params ? Object.entries(c.params).map(([k,v]) => `${k}=${JSON.stringify(v)}`).join(', ') : '-';
+    const statusClass = c.status === 'success' ? 'status-success' : c.status === 'error' ? 'status-error' : 'status-exception';
+    return `<tr>
+      <td class="mono">${c.tool.replace('ableton.','')}</td>
+      <td class="mono" style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${params}">${params}</td>
+      <td><span class="status-badge ${statusClass}">${c.status}</span></td>
+      <td class="mono">${c.duration_ms}ms</td>
+      <td style="color:var(--text-dim)">${formatTime(c.timestamp)}</td>
+    </tr>`;
+  }).join('');
+}
+
+async function loadData(days) {
+  currentDays = days;
+  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`btn${days}`).classList.add('active');
+
+  try {
+    const [summary, recent] = await Promise.all([
+      fetchJSON(`/analytics/summary?days=${days || 9999}`),
+      fetchJSON('/analytics/recent?limit=30'),
+    ]);
+    renderCards(summary);
+    renderToolChart(summary.by_tool);
+    renderQueryChart(summary.top_queries);
+    renderDailyChart(summary.daily);
+    renderRecent(recent);
+    document.getElementById('refreshInfo').textContent = `最終更新: ${new Date().toLocaleTimeString('ja-JP')}`;
+  } catch (e) {
+    document.getElementById('summaryCards').innerHTML = `<div class="loading">データの取得に失敗しました: ${e.message}</div>`;
+  }
+}
+
+loadData(7);
+setInterval(() => loadData(currentDays), 30000);
+</script>
+</body>
+</html>
