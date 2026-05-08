@@ -73,3 +73,17 @@ def test_pattern_db_shape():
         assert "name" in p
         assert "applicable_products" in p
         assert isinstance(p["applicable_products"], list)
+
+
+def test_manual_db_shape():
+    db = _load("manual-db.json")
+    assert isinstance(db, dict) and len(db) >= 20, f"expected >=20 chapters, got {len(db)}"
+    # 主要章は必ず存在する
+    expected = {"clip-view", "session-view", "arrangement-view", "live-instrument-reference"}
+    missing = expected - set(db.keys())
+    assert not missing, f"missing manual chapters: {missing}"
+    # 各章の構造
+    for slug, ch in db.items():
+        assert "title" in ch and ch["title"]
+        assert "sections" in ch and isinstance(ch["sections"], list)
+        assert "url" in ch and ch["url"].startswith("https://www.ableton.com/")

@@ -82,6 +82,32 @@ def test_glossary_warp():
     assert "Beats" in res.get("modes", [])
 
 
+def test_search_manual_finds_clip_view():
+    from search import search_manual
+    res = search_manual("Clip View Layout", max_results=5)
+    assert res["total_matches"] >= 1
+    # トップヒットは clip-view か近い章
+    slugs = {r["slug"] for r in res["results"]}
+    assert "clip-view" in slugs, slugs
+
+
+def test_get_manual_chapter_clip_view():
+    from search import get_manual_chapter
+    ch = get_manual_chapter("clip-view")
+    assert ch is not None
+    assert ch["chapter_number"] == "8"
+    assert "Clip View" in ch["title"]
+    assert len(ch["sections"]) >= 5
+
+
+def test_list_manual_chapters_has_basics():
+    from search import list_manual_chapters
+    res = list_manual_chapters()
+    assert res["chapter_count"] >= 20
+    slugs = {c["slug"] for c in res["chapters"]}
+    assert {"clip-view", "session-view", "arrangement-view"}.issubset(slugs)
+
+
 def test_pattern_loop_audio_clip_top_hit():
     from search import search_patterns
     res = search_patterns("loop audio clip", product="move", max_results=3)

@@ -20,6 +20,10 @@ from search import (
     lookup_glossary,
     search_patterns,
     suggest_approaches,
+    search_manual as _search_manual,
+    get_manual_chapter,
+    get_manual_section as _get_manual_section,
+    list_manual_chapters,
 )
 from github_issues import create_bug_report, create_feature_request
 from analytics import track, get_summary, get_recent_calls
@@ -195,6 +199,62 @@ def glossary(term: str) -> dict:
     if result is None:
         return {"error": f"Term '{term}' not found. / 用語 '{term}' が見つかりません。"}
     return result
+
+
+# --- Live Manual ---
+
+
+@mcp.tool(name="ableton.search_manual")
+@track("ableton.search_manual")
+def search_manual(query: str, max_results: int = 10) -> dict:
+    """Search the official Ableton Live 12.x reference manual (chapters, sections, paragraphs).
+    Ableton Live 12.x 公式リファレンスマニュアルを章・節・本文段落で検索する。
+
+    Args:
+        query: Keyword / キーワード (e.g. "warp", "automation", "Clip View", "Auto Shift")
+        max_results: Maximum results / 最大結果数 (default: 10)
+    """
+    return _search_manual(query, max_results=max_results)
+
+
+@mcp.tool(name="ableton.get_manual_chapter")
+@track("ableton.get_manual_chapter")
+def get_manual_chapter_tool(slug: str) -> dict:
+    """Get a full manual chapter by slug (returns intro + all sections/subsections).
+    マニュアルの章を slug 指定で全文取得する（intro + 全節・小節）。
+
+    Args:
+        slug: Chapter slug / 章スラッグ (e.g. "clip-view", "audio-clips-tempo-and-warping", "live-instrument-reference")
+    """
+    result = get_manual_chapter(slug)
+    if result is None:
+        return {"error": f"Chapter slug '{slug}' not found. / 章 '{slug}' が見つかりません。ableton.list_manual で一覧を確認してください。"}
+    return result
+
+
+@mcp.tool(name="ableton.get_manual_section")
+@track("ableton.get_manual_section")
+def get_manual_section_tool(slug: str, section_number: str) -> dict:
+    """Get a single section/subsection of the manual by chapter slug + section number.
+    章スラッグと節番号 (例: "8.1", "8.1.1") で 1 節だけ取得する。
+
+    Args:
+        slug: Chapter slug / 章スラッグ (e.g. "clip-view")
+        section_number: Section number / 節番号 (e.g. "8.1", "8.1.1")
+    """
+    result = _get_manual_section(slug, section_number)
+    if result is None:
+        return {"error": f"Section '{section_number}' not found in '{slug}'. / 章 '{slug}' に節 '{section_number}' が見つかりません。"}
+    return result
+
+
+@mcp.tool(name="ableton.list_manual")
+@track("ableton.list_manual")
+def list_manual_tool() -> dict:
+    """List all manual chapters with slug, chapter number, title, and section count.
+    マニュアルの全章一覧（slug / 章番号 / タイトル / 節数）を返す。
+    """
+    return list_manual_chapters()
 
 
 # --- Workflow patterns ---
