@@ -34,6 +34,14 @@ Claude → AbletonRefMCP（調べる：Live/Move/Push/Note/M4L）
 | `ableton.official_news` | ableton.com/blog の最新記事一覧（Web） |
 | `ableton.read_article` | 個別記事の本文を取得（ableton.com / help.ableton.com URL） |
 
+### Live マニュアル（4）
+| ツール | 説明 |
+|--------|------|
+| `ableton.search_manual` | Live 12.x マニュアルを章/節/小節/本文で全文検索 |
+| `ableton.get_manual_chapter` | 章 slug 指定で章全体（intro + 全節）を取得 |
+| `ableton.get_manual_section` | 章 slug + 節番号 (例 "8.1.1") でピンポイント取得 |
+| `ableton.list_manual` | 全章一覧（slug / 章番号 / 節数） |
+
 ### LOM (Live Object Model)（2）
 | ツール | 説明 |
 |--------|------|
@@ -123,6 +131,7 @@ Railway は実行時に `PORT` 環境変数を動的に割り当てるので、D
 - `lom-db.json` — LOM 主要クラス 8 種（Application, Song, Track, Clip, …）
 - `glossary-db.json` — Ableton 用語
 - `pattern-db.json` — ワークフローパターン
+- `manual-db.json` — Live 12.x 公式リファレンスマニュアル全 34 章 / 339 節 / 4034 段落（ingest 済み、約 1.1MB）
 
 ## ingest スクリプト
 
@@ -133,7 +142,12 @@ Railway は実行時に `PORT` 環境変数を動的に割り当てるので、D
 python3 scripts/ingest_release_notes.py            # ドライラン
 python3 scripts/ingest_release_notes.py --write    # 実書き込み
 
-# Live マニュアルのデバイス TOC（Phase 2.5 で再実装予定 / 現状 0 件）
+# Live 12.x 公式リファレンスマニュアル全章を取得 (Googlebot UA で SSR)
+python3 scripts/ingest_manual.py --slug clip-view  # 単章テスト
+python3 scripts/ingest_manual.py --write           # EN 全章
+python3 scripts/ingest_manual.py --write --lang ja # 日本語版を別ファイルに
+
+# Live マニュアル TOC スケルトン（ingest_manual.py が本実装、これは旧 stub）
 python3 scripts/ingest_devices.py
 
 # help.ableton.com (Zendesk Help Center) からの記事一覧

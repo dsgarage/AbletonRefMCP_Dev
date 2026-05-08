@@ -17,6 +17,7 @@ _release_notes_db: list | None = None
 _lom_db: dict | None = None
 _glossary_db: dict | None = None
 _pattern_db: list | None = None
+_manual_db: dict | None = None
 
 
 def _load_json(filename: str) -> Any:
@@ -63,6 +64,16 @@ def _get_pattern_db() -> list:
     if _pattern_db is None:
         _pattern_db = _load_json("pattern-db.json")
     return _pattern_db
+
+
+def _get_manual_db() -> dict:
+    global _manual_db
+    if _manual_db is None:
+        try:
+            _manual_db = _load_json("manual-db.json")
+        except FileNotFoundError:
+            _manual_db = {}
+    return _manual_db
 
 
 def _text_score(text: str | None, query: str) -> int:
@@ -405,6 +416,175 @@ def search_patterns(
         "total_matches": len(results),
         "results": limited,
     }
+
+
+# --- Manual (Live 12.x reference manual) ---
+
+
+def search_manual(query: str, max_results: int = 10) -> dict:
+    """章タイトル・節タイトル・本文段落を検索する"""
+    db = _get_manual_db()
+    tokens = _tokenize(query)
+    if not tokens or not db:
+        return {"query": query, "result_count": 0, "total_matches": 0, "results": []}
+
+    hits: list[dict] = []
+    for slug, chapter in db.items():
+        ch_title = chapter.get("title", "")
+        ch_num = chapter.get("chapter_number", "")
+        # 章タイトル
+        ch_score = sum(_text_score(ch_title, t) * 8 for t in tokens)
+        if ch_score > 0:
+            hits.append({
+                "slug": slug,
+                "chapter_number": ch_num,
+                "chapter_title": ch_title,
+                "section_number": ch_num,
+                "section_title": ch_title,
+                "match": "chapter_title",
+                "score": ch_score,
+                "snippet": (chapter.get("intro_paragraphs") or [""])[0][:200],
+            })
+
+        # 節
+        for sec in chapter.get("sections", []):
+            sec_score = sum(
+                _text_score(sec.get("title", ""), t) * 6
+                for t in tokens
+            )
+            if sec_score > 0:
+                hits.append({
+                    "slug": slug,
+                    "chapter_number": ch_num,
+                    "chapter_title": ch_title,
+                    "section_number": sec.get("number", ""),
+                    "section_title": sec.get("title", ""),
+                    "match": "section_title",
+                    "score": sec_score,
+                    "snippet": (sec.get("paragraphs") or [""])[0][:200],
+                })
+
+            # 節の本文
+            for p in sec.get("paragraphs", []):
+                p_score = sum(_text_score(p, t) * 2 for t in tokens)
+                if p_score > 0:
+                    hits.append({
+                        "slug": slug,
+                        "chapter_number": ch_num,
+                        "chapter_title": ch_title,
+                        "section_number": sec.get("number", ""),
+                        "section_title": sec.get("title", ""),
+                        "match": "paragraph",
+                        "score": p_score,
+                        "snippet": p[:240],
+                    })
+
+            # 小節
+            for sub in sec.get("subsections", []):
+                sub_score = sum(
+                    _text_score(sub.get("title", ""), t) * 5
+                    for t in tokens
+                )
+                if sub_score > 0:
+                    hits.append({
+                        "slug": slug,
+                        "chapter_number": ch_num,
+                        "chapter_title": ch_title,
+                        "section_number": sub.get("number", ""),
+                        "section_title": sub.get("title", ""),
+                        "match": "subsection_title",
+                        "score": sub_score,
+                        "snippet": (sub.get("paragraphs") or [""])[0][:200],
+                    })
+                for p in sub.get("paragraphs", []):
+                    p_score = sum(_text_score(p, t) * 2 for t in tokens)
+                    if p_score > 0:
+                        hits.append({
+                            "slug": slug,
+                            "chapter_number": ch_num,
+                            "chapter_title": ch_title,
+                            "section_number": sub.get("number", ""),
+                            "section_title": sub.get("title", ""),
+                            "match": "paragraph",
+                            "score": p_score,
+                            "snippet": p[:240],
+                        })
+
+        # intro_paragraphs
+        for p in chapter.get("intro_paragraphs", []):
+            p_score = sum(_text_score(p, t) * 2 for t in tokens)
+            if p_score > 0:
+                hits.append({
+                    "slug": slug,
+                    "chapter_number": ch_num,
+                    "chapter_title": ch_title,
+                    "section_number": ch_num,
+                    "section_title": ch_title,
+                    "match": "intro_paragraph",
+                    "score": p_score,
+                    "snippet": p[:240],
+                })
+
+    hits.sort(key=lambda x: x["score"], reverse=True)
+    return {
+        "query": query,
+        "result_count": min(len(hits), max_results),
+        "total_matches": len(hits),
+        "results": hits[:max_results],
+    }
+
+
+def get_manual_chapter(slug: str) -> dict | None:
+    db = _get_manual_db()
+    return db.get(slug)
+
+
+def get_manual_section(slug: str, section_number: str) -> dict | None:
+    chapter = get_manual_chapter(slug)
+    if not chapter:
+        return None
+    for sec in chapter.get("sections", []):
+        if sec.get("number") == section_number:
+            return {
+                "slug": slug,
+                "chapter_number": chapter.get("chapter_number"),
+                "chapter_title": chapter.get("title"),
+                "section": sec,
+            }
+        for sub in sec.get("subsections", []):
+            if sub.get("number") == section_number:
+                return {
+                    "slug": slug,
+                    "chapter_number": chapter.get("chapter_number"),
+                    "chapter_title": chapter.get("title"),
+                    "section_number": sec.get("number"),
+                    "section_title": sec.get("title"),
+                    "subsection": sub,
+                }
+    return None
+
+
+def list_manual_chapters() -> dict:
+    db = _get_manual_db()
+    out = []
+    for slug, c in db.items():
+        out.append({
+            "slug": slug,
+            "chapter_number": c.get("chapter_number"),
+            "title": c.get("title"),
+            "section_count": len(c.get("sections", [])),
+            "url": c.get("url"),
+        })
+
+    def sort_key(x):
+        n = x.get("chapter_number") or "99"
+        try:
+            return float(n)
+        except ValueError:
+            return 99.0
+
+    out.sort(key=sort_key)
+    return {"chapter_count": len(out), "chapters": out}
 
 
 # --- Suggestion (minimal Phase 1 stub) ---
